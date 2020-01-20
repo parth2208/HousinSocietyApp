@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/login_background">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/register_relLayout1"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,59 +20,51 @@
             android:text="Create Your Account"
             android:textColor="@color/white"
             android:textSize="35sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/register_relLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="register_relLayout1">
+        android:layout_below="@id/register_relLayout1"
+        android:layout_centerHorizontal="true">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:id="@+id/register_cardView_displayName"
+            android:layout_centerHorizontal="true"
             android:elevation="15dp"
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
             app:cardCornerRadius="35dp"
-            app:cardBackgroundColor="@color/transparent_gradient"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="register_relLayout2">
+            app:cardBackgroundColor="@color/transparent_gradient">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:id="@+id/register_icon_fullname"
                 android:layout_marginStart="5dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_user" />
+                android:src="@drawable/ic_profile" />
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="35dp"
                 android:paddingEnd="10dp">
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/register_editText_displayName"
                     android:inputType="textNoSuggestions"
                     android:hint="Full Name" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:id="@+id/register_cardView_username"
@@ -86,49 +75,44 @@
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
             app:cardCornerRadius="35dp"
-            app:cardBackgroundColor="@color/transparent_gradient"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="register_cardView_displayName">
+            app:cardBackgroundColor="@color/transparent_gradient">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:id="@+id/register_icon_user"
                 android:layout_marginStart="5dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_user" />
+                android:src="@drawable/ic_profile" />
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="35dp"
                 android:paddingEnd="10dp">
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/register_editText_username"
                     android:inputType="textNoSuggestions"
                     android:hint="Username" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:id="@+id/register_cardView_email"
+            android:layout_below="@id/register_cardView_username"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
             android:elevation="15dp"
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
             app:cardCornerRadius="35dp"
-            app:cardBackgroundColor="@color/transparent_gradient"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="register_cardView_username">
+            app:cardBackgroundColor="@color/transparent_gradient">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -138,7 +122,7 @@
                 android:src="@drawable/ic_email" />
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="35dp"
@@ -150,11 +134,11 @@
                     android:inputType="textEmailAddress|textNoSuggestions"
                     android:hint="Email"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:id="@+id/register_cardView_password"
@@ -165,10 +149,7 @@
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
             app:cardCornerRadius="35dp"
-            app:cardBackgroundColor="@color/transparent_gradient"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="register_cardView_email">
+            app:cardBackgroundColor="@color/transparent_gradient">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -178,7 +159,7 @@
                 android:src="@drawable/ic_lock" />
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="35dp"
@@ -190,11 +171,11 @@
                     android:inputType="textPassword|textNoSuggestions"
                     android:hint="Password"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:id="@+id/register_imgButton"
@@ -204,9 +185,6 @@
             android:elevation="20dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="register_cardView_password"
             />
 
         <ProgressBar
@@ -215,12 +193,9 @@
             android:id="@+id/register_progressbar"
             android:layout_below="@id/register_imgButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="register_imgButton"/>
+            android:layout_marginTop="15dp"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

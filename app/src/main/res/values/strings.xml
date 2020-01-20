@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">HousingSocietyApp</string>
+
+
+    <string name="homeActivity">Home</string>
+    <string name="profileActivity">Profile</string>
+    <string name="historyActivity">History</string>
+
+    <string name="dialog"> SignOut Dialog</string>
+
+
+    //FireBase Text
+
+    <string name="google_status_fmt"> Edit Profile </string>
+    <string name="firebase_status_fmt"> Edit Profile </string>
+    <string name="auth_failed"> Authentication Failed </string>
+
+    // Database nodes name
+
+    <string name="db_user"> user </string>
+    <string name="db_user_settings"> user_settings </string>
+
+    //FireBase Fields
+    <string name="field_username"> username </string>
+    <string name="field_dispalyName"> display_name </string>
+    <string name="field_email"> email </string>
+    <string name="field_mobileNo"> mobile_no </string>
+
 </resources>

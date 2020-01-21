@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
-import com.example.housingsocietyapp.MainActivity;
+import com.example.housingsocietyapp.View.UI.UI.MainActivity;
 import com.example.housingsocietyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

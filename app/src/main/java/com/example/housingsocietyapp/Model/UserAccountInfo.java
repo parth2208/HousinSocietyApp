@@ -11,11 +11,6 @@ public class UserAccountInfo {
         this.userSettings = userSettings;
     }
 
-
-    public UserAccountInfo() {
-    }
-
-
     public User getUser() {
         return user;
     }

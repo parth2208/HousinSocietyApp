@@ -85,61 +85,8 @@ public class FirebaseMethods {
         }
     }
 
-    public void updateUserSettings(String display_Name, final long mobile_no){
-        Log.d(TAG, "changeUsername: Updating  "+ display_Name);
-        if (display_Name!= null) {
-            myref.child(mContext.getString(R.string.db_user_settings)).child(userID)
-                    .child(mContext.getString(R.string.field_dispalyName)).setValue(display_Name);
-        }
-
-        if (mobile_no!= 0) {
-            myref.child(mContext.getString(R.string.db_user_settings)).child(userID)
-                    .child(mContext.getString(R.string.field_mobileNo)).setValue(mobile_no);
-        }
-    }
-
-    public void changeUsername(String username){
-        Log.d(TAG, "changeUsername: Changing username "+ username);
-
-        myref.child(mContext.getString(R.string.db_user)).child(userID)
-                .child(mContext.getString(R.string.field_username)).setValue(username);
-
-        myref.child(mContext.getString(R.string.db_user_settings)).child(userID)
-                .child(mContext.getString(R.string.field_username)).setValue(username);
-
-    }
-
-    public void addNewUser(String username, String email, String display_name, String display_photo) {
-
-        //this will add the values of the child in the User node
-        User user = new User(
-                username,
-                email,
-                userID,
-                1);
-
-        myref.child(mContext.getString(R.string.db_user))
-                .child(userID).setValue(user);
-
-        //This will add the values of the child in the UserSettings node
-
-        UserSettings userSettings = new UserSettings(
-                display_name,
-                display_photo,
-                username);
-
-        myref.child(mContext.getString(R.string.db_user_settings))
-                .child(userID)
-                .setValue(userSettings);
-
-    }
-
-    //Get the user settings info form the database using datasnapshot
-    //for the users that are using the app
-    // Into the app design.
-
-    public UserAccountInfo getuserInfo(DataSnapshot dataSnapshot) {
-        Log.d(TAG, "getuserInfo: getting user general Info");
+    public UserAccountInfo userAccountInfo(DataSnapshot dataSnapshot){
+        Log.d(TAG, "getUserInfo: getting user general Info");
 
         UserSettings settings = new UserSettings();
         User user = new User();
@@ -148,22 +95,12 @@ public class FirebaseMethods {
 
 
             //This if will work for the User_Account_Setting node particularly
-            if (dataSnapshot1.getKey().equals(mContext.getString(R.string.db_user_settings))){
+            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user_settings))){
                 Log.d(TAG, "getuserInfo: getting information from firebase" + dataSnapshot1);
 
 
                 try {
-                    settings.setDisplay_name(
-                            dataSnapshot1.child(userID)
-                                    .getValue(UserSettings.class)
-                                    .getUsername()
-                    );
 
-                    settings.setUsername(
-                            dataSnapshot1.child(userID)
-                                    .getValue(UserSettings.class)
-                                    .getUsername()
-                    );
                     settings.setDisplay_photo(
                             dataSnapshot1.child(userID)
                                     .getValue(UserSettings.class)
@@ -175,7 +112,7 @@ public class FirebaseMethods {
             }
 
             //This if will work for the User node particularly
-            if (dataSnapshot1.getKey().equals(mContext.getString(R.string.db_user))) {
+            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user))) {
                 Log.d(TAG, "getuserInfo: " + dataSnapshot1);
 
                 user.setUsername(
@@ -201,9 +138,10 @@ public class FirebaseMethods {
                                 .getValue(User.class)
                                 .getUser_id()
                 );
-                Log.d(TAG, "getuserInfo: got the info from user node" + user.toString());
+                Log.d(TAG, "getUserInfo: got the info from user node" + user.toString());
             }
         }
         return new UserAccountInfo(user,settings);
     }
+
 }

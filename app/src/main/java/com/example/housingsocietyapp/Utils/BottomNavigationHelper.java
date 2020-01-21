@@ -7,9 +7,9 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 
-import com.example.housingsocietyapp.MainActivity;
+import com.example.housingsocietyapp.View.UI.UI.MainActivity;
 import com.example.housingsocietyapp.R;
-import com.example.housingsocietyapp.View.UI.UI.HistoryActivity;
+import com.example.housingsocietyapp.View.UI.UI.SearchActivity;
 import com.example.housingsocietyapp.View.UI.UI.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -43,7 +43,7 @@ public class BottomNavigationHelper {
                         break;
 
                     case R.id.ic_history :
-                        Intent intentTransaction = new Intent(context, HistoryActivity.class);
+                        Intent intentTransaction = new Intent(context, SearchActivity.class);
                         context.startActivity(intentTransaction);
                         break;
 

@@ -8,6 +8,30 @@
 
     <string name="dialog"> SignOut Dialog</string>
 
+    <string name="notice1">This is noticed that some notorious people or group " +
+                    "of people are damaging and making scratches on the vehicles in the society. " +
+                    "This is humble request to all the residents to keep their eye " +
+                    "and ear open towards such nuisance creators.\n" +
+                    "\n" +
+                    "Kindly be vigilant and inform the security personels whenever" +
+                    " you are on vacation or on long travel and your house is locked" +
+                    " so that security personells can be more vigilant and careful.</string>
+
+    <string name="notice2">The meeting shall sharp start at 10.30 am. If the quorum of the meeting" +
+                    " is not present at that time, the meeting shall be adjourned for another half an hour from 10.30 am. The adjourne" +
+                    "d meeting take place 11.00 am at the same date and venue. In the adjourned meeting no quorum is necessary.</string>
+    <string name="notice3">"Dear Residents,\n" +
+                    "\n" +
+                    "Resident Welfare Association would like to inform you that " +
+                    "a new scrap dealer, Mr. Mahesh Chand has been appointed in" +
+                    " place of old scrap dealer Mr. Subhash.\n" +
+                    "\n" +
+                    "So from now (1st January 2015), RWA authorize Mr Mahesh as" +
+                    " the new scrap dealer for Sanskriti Apartments. RWA have" +
+                    " made a legal contract with him and fixed a fees of" +
+                    " Rs. 6000/- per month (Rs. 72000 per annum) in comparison" +
+                    " to the previous one which was Rs. 1000/- per month (Rs. 12000/- per annum)."</string>
+
 
     //FireBase Text
 

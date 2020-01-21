@@ -8,10 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.housingsocietyapp.Model.LocalModel.HomeRecyclerDataModel;
 import com.example.housingsocietyapp.R;
 
@@ -45,7 +44,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
         holder.textView.setText(model.getTitle());
         holder.imageView.setImageResource(model.banner);
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(model.color));
+        holder.constraintLayout.setBackgroundColor(Color.parseColor(model.color));
 
     }
 
@@ -58,7 +57,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
         public TextView textView;
         public ImageView imageView;
-        public RelativeLayout relativeLayout;
+        public ConstraintLayout constraintLayout;
         HomeRecyclerDataModel item;
 
 
@@ -68,7 +67,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             itemView.setOnClickListener(this);
             textView =  itemView.findViewById(R.id.home_textView);
             imageView = itemView.findViewById(R.id.home_banner);
-            relativeLayout = itemView.findViewById(R.id.homeConstraint);
+            constraintLayout = itemView.findViewById(R.id.homeConstraint);
         }
 
         @Override

@@ -55,7 +55,9 @@ public class ProfileRepository {
 
     public LiveData<UserAccountInfo> userAccountInfoLiveData(DataSnapshot dataSnapshot){
         UserAccountInfo userAccountInfo = userAccountInfo(dataSnapshot);
-        accountInfoLiveData.postValue(userAccountInfo);
+
+            Log.d(TAG, "userAccountInfoLiveData: Info is" + userAccountInfo.getUser().getEmail());
+            accountInfoLiveData.postValue(userAccountInfo);
         return accountInfoLiveData;
     }
 
@@ -64,79 +66,6 @@ public class ProfileRepository {
      *     for the users that are using the app
      *     Into the app UI.
      */
-
-//    private static class AccountInfoAsyncTask extends AsyncTask<Void, Void, UserAccountInfo>{
-//
-//        DataSnapshot dataSnapshot;
-//        String userID;
-//        Application application;
-//
-//        private AccountInfoAsyncTask(DataSnapshot dataSnapshot, Application application,String userID){
-//            this.application = application;
-//            this.dataSnapshot = dataSnapshot;
-//            this.userID = userID;
-//        }
-//
-//        @Override
-//        protected UserAccountInfo doInBackground(Void... voids) {
-//                Log.d(TAG, "getUserInfo: getting user general Info");
-//
-//                UserSettings settings = new UserSettings();
-//                User user = new User();
-//
-//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-//
-//
-//                    //This if will work for the User_Account_Setting node particularly
-//                    if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user_settings))){
-//                        Log.d(TAG, "getuserInfo: getting information from firebase" + dataSnapshot1);
-//
-//
-//                        try {
-//
-//                            settings.setDisplay_photo(
-//                                    dataSnapshot1.child(userID)
-//                                            .getValue(UserSettings.class)
-//                                            .getDisplay_photo()
-//                            );
-//                        }catch (NullPointerException e){
-//                            Log.e(TAG, "getuserInfo: NullPointerException"+ e );
-//                        }
-//                    }
-//
-//                    //This if will work for the User node particularly
-//                    if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user))) {
-//                        Log.d(TAG, "getuserInfo: " + dataSnapshot1);
-//
-//                        user.setUsername(
-//                                dataSnapshot1.child(userID)
-//                                        .getValue(User.class)
-//                                        .getUsername()
-//                        );
-//
-//                        user.setEmail(
-//                                dataSnapshot1.child(userID)
-//                                        .getValue(User.class)
-//                                        .getEmail()
-//                        );
-//
-//                        user.setMobile_no(
-//                                dataSnapshot1.child(userID)
-//                                        .getValue(User.class)
-//                                        .getMobile_no()
-//                        );
-//
-//                        user.setUser_id(
-//                                dataSnapshot1.child(userID)
-//                                        .getValue(User.class)
-//                                        .getUser_id()
-//                        );
-//                        Log.d(TAG, "getUserInfo: got the info from user node" + user.toString());
-//                    }
-//                }
-//                return new UserAccountInfo(user,settings);
-//        }
-//    }
 
     private static class AddUserAsyncTask extends AsyncTask<Void,Void,Void>{
 
@@ -166,7 +95,7 @@ public class ProfileRepository {
                     username,
                     email,
                     userID,
-                    "1");
+                    1);
 
             myref.child(application.getString(R.string.db_user))
                     .child(userID).setValue(user);

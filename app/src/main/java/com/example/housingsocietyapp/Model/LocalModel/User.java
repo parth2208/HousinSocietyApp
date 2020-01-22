@@ -4,9 +4,9 @@ public class User {
     private String username;
     private String email;
     private String user_id;
-    private String mobile_no;
+    private long mobile_no;
 
-    public User(String username, String email, String user_id, String mobile_no) {
+    public User(String username, String email, String user_id, long mobile_no) {
         this.username = username;
         this.email = email;
         this.user_id = user_id;
@@ -40,11 +40,11 @@ public class User {
         this.user_id = user_id;
     }
 
-    public String getMobile_no() {
+    public long getMobile_no() {
         return mobile_no;
     }
 
-    public void setMobile_no(String mobile_no) {
+    public void setMobile_no(long mobile_no) {
         this.mobile_no = mobile_no;
     }
 

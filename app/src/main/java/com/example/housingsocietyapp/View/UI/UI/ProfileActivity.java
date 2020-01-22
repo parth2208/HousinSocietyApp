@@ -33,7 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
 
-    private static final int Activity_Num = 2;
+    private static final int Activity_Num = 1;
 
     //FireBase
     private FirebaseAuth mAuth;
@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        ViewModelProviders.of(this).get(ProfileViewModel.class);
+        profileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
         setupfirebaseAuth();
         setupBottomNavigationView();
         initWidget();
@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
         name.setText(userAccountInfo.getUserSettings().getDisplay_name());
         userName.setText(userAccountInfo.getUser().getUsername());
         userEmail.setText(userAccountInfo.getUser().getEmail());
-        userMobile.setText(userAccountInfo.getUser().getMobile_no());
+        userMobile.setText(String.format(Long.toString(userAccountInfo.getUser().getMobile_no())));
 
     }
 

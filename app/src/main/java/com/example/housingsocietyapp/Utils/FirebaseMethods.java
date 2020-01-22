@@ -90,7 +90,7 @@ public class FirebaseMethods {
                 username,
                 email,
                 userID,
-                "1");
+                1);
 
         myref.child(mContext.getString(R.string.db_user))
                 .child(userID).setValue(user);

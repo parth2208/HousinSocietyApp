@@ -5,13 +5,13 @@ public class UserSettings {
     private String display_name;
     private String display_photo;
 
-    public UserSettings(String display_name, String display_photo) {
+    public UserSettings(String name, String displayName, String display_name) {
         this.display_name = display_name;
         this.display_photo = display_photo;
     }
 
 
-    public UserSettings(String display_name, String display_photo, String username) {
+    public UserSettings() {
     }
 
     public String getDisplay_name() {

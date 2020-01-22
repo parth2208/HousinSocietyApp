@@ -24,5 +24,6 @@ public class ProfileViewModel extends AndroidViewModel {
     }
 
     public LiveData<UserAccountInfo> getAccountInfoLiveData(DataSnapshot dataSnapshot){
+        return accountInfoLiveData;
     }
 }

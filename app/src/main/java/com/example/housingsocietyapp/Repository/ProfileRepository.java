@@ -170,7 +170,7 @@ public class ProfileRepository {
 
             //This will add the values of the child in the UserSettings node
 
-            UserSettings userSettings = new UserSettings(
+            UserSettings userSettings = new UserSettings(username,
                     display_name,
                     display_photo);
 

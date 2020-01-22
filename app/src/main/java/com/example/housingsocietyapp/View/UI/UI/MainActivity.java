@@ -169,11 +169,11 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerViewA
 
                 if (checkPermission()) {
 
-                    Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(this, "Permission Already Granted", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Snackbar.make(view, "Please request permission.", Snackbar.LENGTH_LONG).show();
+//                    Snackbar.make(view, "Please request permission.", Snackbar.LENGTH_LONG).show();
                     requestPermission();
                 }
 
@@ -201,10 +201,11 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerViewA
                     boolean cameraAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                     if (locationAccepted && cameraAccepted)
-                        Snackbar.make(view, "Permission Granted, Now you can access location data and camera.", Snackbar.LENGTH_LONG).show();
+
+                        Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show();
                     else {
 
-                        Snackbar.make(view, "Permission Denied, You cannot access location data and camera.", Snackbar.LENGTH_LONG).show();
+                        Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CALL_PHONE)) {

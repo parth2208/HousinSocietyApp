@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerViewA
     //FireBase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener AuthListner;
+    HomeRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +50,13 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerViewA
         recyclerView = findViewById(R.id.main_recyclerView);
         arrayList = new ArrayList<>();
 
-        arrayList.add(new HomeRecyclerDataModel("Help Desk", R.drawable.ic_live_help_black_24dp, "#09A9FF"));
-        arrayList.add(new HomeRecyclerDataModel("Notice Board", R.drawable.ic_notifications_active_black_24dp, "#3E51B1"));
         arrayList.add(new HomeRecyclerDataModel("Payments", R.drawable.ic_payment_black_24dp, "#673BB7"));
+        arrayList.add(new HomeRecyclerDataModel("Vendors", R.drawable.vendors, "#0A9B88"));
+        arrayList.add(new HomeRecyclerDataModel("Notice Board", R.drawable.ic_notifications_active_black_24dp, "#3E51B1"));
         arrayList.add(new HomeRecyclerDataModel("Society Rules", R.drawable.ic_rules, "#4BAA50"));
         arrayList.add(new HomeRecyclerDataModel("Complaints", R.drawable.ic_complaints, "#F94336"));
-        arrayList.add(new HomeRecyclerDataModel("Vendors", R.drawable.vendors, "#0A9B88"));
 
-        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(arrayList, this,this);
+        adapter = new HomeRecyclerViewAdapter(arrayList, this,this);
         recyclerView.setAdapter(adapter);
         GridLayoutManager  gridLayoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -134,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements HomeRecyclerViewA
 
     @Override
     public void onItemClick(HomeRecyclerDataModel item) {
+
+        adapter.
 
         Toast.makeText(this, "is clicked" + item.getTitle(), Toast.LENGTH_SHORT).show();
     }

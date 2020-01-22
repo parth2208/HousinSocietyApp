@@ -2,9 +2,7 @@ package com.example.housingsocietyapp.Repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
-
 import androidx.lifecycle.LiveData;
-
 import com.example.housingsocietyapp.Model.Database.HousingDatabase;
 import com.example.housingsocietyapp.Model.Database.VendorsDao;
 import com.example.housingsocietyapp.Model.Database.VendorsTable;

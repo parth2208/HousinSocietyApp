@@ -39,6 +39,17 @@
     <string name="firebase_status_fmt"> Edit Profile </string>
     <string name="auth_failed"> Authentication Failed </string>
 
+    //Spinner Array
+    <string-array name="bill_type">
+        <item>Select Vehicle Type</item>
+        <item>Flat Rent</item>
+        <item>Electricity Bill</item>
+        <item>Parking Rent</item>
+        <item>Water Bill</item>
+        <item>Maintenance Charge</item>
+        <item>Security Charges</item>
+    </string-array>
+
     // Database nodes name
 
     <string name="db_user"> user </string>

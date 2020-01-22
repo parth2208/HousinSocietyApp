@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View.UI.UI.SubmitPaymentActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/constraint_top_tab"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <include layout="@layout/layout_top_tabs"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Make payment"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_unique_id"
+            android:textColor="@color/black"
+            android:text="Transaction Id :-"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint_top_tab"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/db_unique_id"
+            android:textColor="@color/black"
+            android:text="DB Id"
+            android:layout_marginTop="20dp"
+            android:layout_alignBaseline="@id/text_unique_id"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/constraint_top_tab"
+            app:layout_constraintStart_toEndOf="@id/text_unique_id"
+            />
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/easy_card_flip"
+            android:layout_marginTop="35dp"
+            android:foregroundGravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            app:flipDuration="400"
+            app:flipOnTouch="true"
+            app:flipEnabled="true"
+            app:flipFrom="right"
+            app:flipType="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/db_unique_id">
+
+            <!--This will backside of the card-->
+            <include layout="@layout/card_back_side"/>
+
+            <!--This will show front Side of the card-->
+            <include layout="@layout/card_front_side"/>
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/submit_payment_btn"
+            android:layout_below="@id/easy_card_flip"
+            android:src="@drawable/ic_check"
+            android:background="@drawable/vehicle_add_btn_background"
+            android:elevation="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/easy_card_flip"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

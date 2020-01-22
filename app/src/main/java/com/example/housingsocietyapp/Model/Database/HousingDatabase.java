@@ -11,13 +11,14 @@ import com.example.housingsocietyapp.R;
 import java.text.DateFormat;
 import java.util.Date;
 
-@Database(entities = {NoticeTable.class,VendorsTable.class}, version = 1,exportSchema = false)
+@Database(entities = {NoticeTable.class,VendorsTable.class,Payments.class}, version = 1,exportSchema = false)
 public abstract class HousingDatabase extends RoomDatabase {
 
     private static HousingDatabase instance;
 
     public abstract NoticeDao noticeDao();
     public abstract VendorsDao vendorsDao();
+    public abstract PaymentsDao paymentsDao();
 
     public static synchronized HousingDatabase getInstance(Context context){
 

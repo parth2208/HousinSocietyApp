@@ -2,19 +2,16 @@ package com.example.housingsocietyapp.View.UI.UI;
 
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.housingsocietyapp.Model.Database.VendorsTable;
 import com.example.housingsocietyapp.R;
 import com.example.housingsocietyapp.View.UI.UI.Adapter.VendorAdapter;
 import com.example.housingsocietyapp.ViewModel.VendorsViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +53,8 @@ public class VendorActivity extends AppCompatActivity implements VendorAdapter.I
     }
 
     @Override
-    public void onItemClick(VendorsTable item) {
+    public void onItemClick(VendorsTable item){
         // TODO: 1/22/2020 Implementation of CallerIntent
+
     }
 }

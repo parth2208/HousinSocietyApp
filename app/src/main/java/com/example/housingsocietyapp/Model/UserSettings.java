@@ -11,7 +11,7 @@ public class UserSettings {
     }
 
 
-    public UserSettings() {
+    public UserSettings(String display_name, String display_photo, String username) {
     }
 
     public String getDisplay_name() {

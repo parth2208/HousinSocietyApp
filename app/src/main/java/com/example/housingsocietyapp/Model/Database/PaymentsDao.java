@@ -12,6 +12,6 @@ public interface PaymentsDao {
     @Insert
     void addPayment(Payments payments);
 
-    @Query("SELECT paymentAmount, paymentId,paymentTimeStamp ,paymentCycle,billType FROM payments_table")
-    LiveData<List<Payments>> getAllPayments;
+    @Query("SELECT paymentAmount, paymentId,paymentTimeStamp ,paymentCycle,billType, success FROM payments_table")
+    LiveData<List<Payments>> getAllPayments();
 }

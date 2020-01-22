@@ -20,10 +20,9 @@ public class ProfileViewModel extends AndroidViewModel {
         super(application);
 
         profileRepository = new ProfileRepository(application);
-        accountInfoLiveData = profileRepository;
+//        accountInfoLiveData = profileRepository;
     }
 
     public LiveData<UserAccountInfo> getAccountInfoLiveData(DataSnapshot dataSnapshot){
-
     }
 }

@@ -8,12 +8,12 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface NoticeDao {
+public interface ComplaintsDao {
 
     @Insert
-    void newNotice(NoticeTable noticeTable);
+    void newComplaint(Complaints complaints);
 
-    @Query("SELECT noticeText, timeStamp,count FROM notice_table")
-    LiveData<List<NoticeTable>> getAllNotice();
+    @Query("SELECT complaint, complaintId FROM complaints_table")
+    LiveData<List<Complaints>> getAllComplaints();
 
 }

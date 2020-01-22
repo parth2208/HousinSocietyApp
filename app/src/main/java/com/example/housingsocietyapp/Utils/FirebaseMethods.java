@@ -85,63 +85,88 @@ public class FirebaseMethods {
         }
     }
 
-    public UserAccountInfo userAccountInfo(DataSnapshot dataSnapshot){
-        Log.d(TAG, "getUserInfo: getting user general Info");
+    public void addNewUser(String username, String email, String display_name, String display_photo) {
 
-        UserSettings settings = new UserSettings();
-        User user = new User();
+        //this will add the values of the child in the User node
+        User user = new User(
+                username,
+                email,
+                userID,
+                1);
 
-        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+        myref.child(mContext.getString(R.string.db_user))
+                .child(userID).setValue(user);
 
+        //This will add the values of the child in the UserSettings node
 
-            //This if will work for the User_Account_Setting node particularly
-            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user_settings))){
-                Log.d(TAG, "getuserInfo: getting information from firebase" + dataSnapshot1);
+        UserSettings userSettings = new UserSettings(
+                display_name,
+                display_photo,
+                username);
 
+        myref.child(mContext.getString(R.string.db_user_settings))
+                .child(userID)
+                .setValue(userSettings);
 
-                try {
-
-                    settings.setDisplay_photo(
-                            dataSnapshot1.child(userID)
-                                    .getValue(UserSettings.class)
-                                    .getDisplay_photo()
-                    );
-                }catch (NullPointerException e){
-                    Log.e(TAG, "getuserInfo: NullPointerException"+ e );
-                }
-            }
-
-            //This if will work for the User node particularly
-            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user))) {
-                Log.d(TAG, "getuserInfo: " + dataSnapshot1);
-
-                user.setUsername(
-                        dataSnapshot1.child(userID)
-                                .getValue(User.class)
-                                .getUsername()
-                );
-
-                user.setEmail(
-                        dataSnapshot1.child(userID)
-                                .getValue(User.class)
-                                .getEmail()
-                );
-
-                user.setMobile_no(
-                        dataSnapshot1.child(userID)
-                                .getValue(User.class)
-                                .getMobile_no()
-                );
-
-                user.setUser_id(
-                        dataSnapshot1.child(userID)
-                                .getValue(User.class)
-                                .getUser_id()
-                );
-                Log.d(TAG, "getUserInfo: got the info from user node" + user.toString());
-            }
-        }
-        return new UserAccountInfo(user,settings);
     }
+
+//    public UserAccountInfo userAccountInfo(DataSnapshot dataSnapshot){
+//        Log.d(TAG, "getUserInfo: getting user general Info");
+//
+//        UserSettings settings = new UserSettings();
+//        User user = new User();
+//
+//        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+//
+//
+//            //This if will work for the User_Account_Setting node particularly
+//            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user_settings))){
+//                Log.d(TAG, "getuserInfo: getting information from firebase" + dataSnapshot1);
+//
+//
+//                try {
+//
+//                    settings.setDisplay_photo(
+//                            dataSnapshot1.child(userID)
+//                                    .getValue(UserSettings.class)
+//                                    .getDisplay_photo()
+//                    );
+//                }catch (NullPointerException e){
+//                    Log.e(TAG, "getuserInfo: NullPointerException"+ e );
+//                }
+//            }
+//
+//            //This if will work for the User node particularly
+//            if (dataSnapshot1.getKey().equals(application.getString(R.string.db_user))) {
+//                Log.d(TAG, "getuserInfo: " + dataSnapshot1);
+//
+//                user.setUsername(
+//                        dataSnapshot1.child(userID)
+//                                .getValue(User.class)
+//                                .getUsername()
+//                );
+//
+//                user.setEmail(
+//                        dataSnapshot1.child(userID)
+//                                .getValue(User.class)
+//                                .getEmail()
+//                );
+//
+//                user.setMobile_no(
+//                        dataSnapshot1.child(userID)
+//                                .getValue(User.class)
+//                                .getMobile_no()
+//                );
+//
+//                user.setUser_id(
+//                        dataSnapshot1.child(userID)
+//                                .getValue(User.class)
+//                                .getUser_id()
+//                );
+//                Log.d(TAG, "getUserInfo: got the info from user node" + user.toString());
+//            }
+//        }
+//        return new UserAccountInfo(user,settings);
+//    }
 
 }

@@ -21,8 +21,8 @@ public class ProfileRepository {
     private DatabaseReference myref;
     private String userID;
     private LiveData<UserAccountInfo> accountInfoLiveData;
-
     private Application application;
+    private UserAccountInfo settings;
 
     public ProfileRepository(Application application){
 
@@ -52,7 +52,7 @@ public class ProfileRepository {
     }
 
     public LiveData<UserAccountInfo> userAccountInfoLiveData(DataSnapshot dataSnapshot){
-        accountInfoLiveData = userAccountInfo(dataSnapshot);
+//        accountInfoLiveData = userAccountInfo(dataSnapshot);
         return accountInfoLiveData;
     }
 

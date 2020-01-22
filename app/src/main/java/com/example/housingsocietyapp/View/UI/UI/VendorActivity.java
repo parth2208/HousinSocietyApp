@@ -1,5 +1,7 @@
 package com.example.housingsocietyapp.View.UI.UI;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
@@ -55,6 +57,11 @@ public class VendorActivity extends AppCompatActivity implements VendorAdapter.I
     @Override
     public void onItemClick(VendorsTable item){
         // TODO: 1/22/2020 Implementation of CallerIntent
+        if (item.getPhone()!= null){
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + item.getPhone()));
+            startActivity(intent);
+        }
+
 
     }
 }

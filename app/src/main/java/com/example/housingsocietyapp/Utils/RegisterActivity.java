@@ -12,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.housingsocietyapp.R;
+import com.example.housingsocietyapp.ViewModel.ProfileViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity";
 
-
+    private ProfileViewModel profileViewModel;
     private Context mContext;
     private String email, username, password, display_name;
     private EditText mEmail, mPassword, mUsername, mDisplay_name;
@@ -53,8 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         mContext = RegisterActivity.this;
         firebaseMethods = new FirebaseMethods(mContext);
-
-
 
         initialWidget();
         initialBtn();

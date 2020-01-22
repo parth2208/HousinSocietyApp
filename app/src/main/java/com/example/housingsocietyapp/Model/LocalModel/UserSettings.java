@@ -1,11 +1,11 @@
-package com.example.housingsocietyapp.Model;
+package com.example.housingsocietyapp.Model.LocalModel;
 
 public class UserSettings {
 
     private String display_name;
     private String display_photo;
 
-    public UserSettings(String name, String displayName, String display_name) {
+    public UserSettings(String name, String displayName, String display_photo) {
         this.display_name = display_name;
         this.display_photo = display_photo;
     }

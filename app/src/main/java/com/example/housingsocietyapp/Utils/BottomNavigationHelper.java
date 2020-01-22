@@ -36,11 +36,11 @@ public class BottomNavigationHelper {
                         context.startActivity(intentHome);
                         break;
 
-//                    case R.id.ic_profile :
-//
-//                        Intent intetVehicle = new Intent(context, ProfileActivity.class);
-//                        context.startActivity(intetVehicle);
-//                        break;
+                    case R.id.ic_profile :
+
+                        Intent intetVehicle = new Intent(context, ProfileActivity.class);
+                        context.startActivity(intetVehicle);
+                        break;
                 }
                 return false;
             }

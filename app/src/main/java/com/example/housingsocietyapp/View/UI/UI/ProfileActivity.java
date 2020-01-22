@@ -5,12 +5,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.housingsocietyapp.Model.LocalModel.UserAccountInfo;
 import com.example.housingsocietyapp.R;
 import com.example.housingsocietyapp.Utils.BottomNavigationHelper;
 import com.example.housingsocietyapp.Utils.LoginActivity;
+import com.example.housingsocietyapp.ViewModel.NoticeViewModel;
+import com.example.housingsocietyapp.ViewModel.ProfileViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
@@ -30,15 +40,39 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener AuthListner;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference  databaseReference;
+    private ProfileViewModel profileViewModel;
+    private UserAccountInfo userAccountInfo;
+
+    private TextView name, userName, userMobile, userEmail;
+    private CircleImageView displayPhoto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
 
+        ViewModelProviders.of(this).get(ProfileViewModel.class);
         setupfirebaseAuth();
         setupBottomNavigationView();
+        initWidget();
     }
 
+    public void initWidget(){
+        name = findViewById(R.id.profile_name);
+        userName = findViewById(R.id.profile_userName);
+        userEmail = findViewById(R.id.profile_userEmail);
+        displayPhoto = findViewById(R.id.profile_picture);
+        userMobile = findViewById(R.id.profile_userMobile);
+    }
+
+    public void setUserInfo(UserAccountInfo info){
+        this.userAccountInfo = info;
+        name.setText(userAccountInfo.getUserSettings().getDisplay_name());
+        userName.setText(userAccountInfo.getUser().getUsername());
+        userEmail.setText(userAccountInfo.getUser().getEmail());
+        userMobile.setText(userAccountInfo.getUser().getMobile_no());
+
+    }
 
     /**
      * BottomNavigationViewSetup
@@ -47,16 +81,13 @@ public class ProfileActivity extends AppCompatActivity {
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: Setting up bottom navigation view");
 
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavBarView);
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavBarView);
         BottomNavigationHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationHelper.enableNavigation(ProfileActivity.this,bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(Activity_Num);
         menuItem.setChecked(true);
     }
-
-
-    // -----------------------------FireBase Setup-----------------------------------------
 
     /**
      * Setting up firebase Auth
@@ -81,7 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
         AuthListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
                 checkCurrentUser(user);
 
                 if (user != null) {
@@ -94,14 +125,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         };
 
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                //retrieve data from firebase.
-
-
+                //Retrieve data from Firebase.
+                profileViewModel.getAccountInfoLiveData(dataSnapshot).observe(ProfileActivity.this, new Observer<UserAccountInfo>() {
+                    @Override
+                    public void onChanged(UserAccountInfo userAccountInfo) {
+                        setUserInfo(userAccountInfo);
+                    }
+                });
             }
 
             @Override
@@ -109,8 +143,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override

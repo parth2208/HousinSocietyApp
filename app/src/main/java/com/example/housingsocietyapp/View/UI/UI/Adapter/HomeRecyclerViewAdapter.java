@@ -58,7 +58,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         public TextView textView;
         public ImageView imageView;
         public ConstraintLayout constraintLayout;
-        HomeRecyclerDataModel item;
+        public HomeRecyclerDataModel item;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -68,6 +68,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             textView =  itemView.findViewById(R.id.home_textView);
             imageView = itemView.findViewById(R.id.home_banner);
             constraintLayout = itemView.findViewById(R.id.homeConstraint);
+
         }
 
         @Override

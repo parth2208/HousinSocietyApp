@@ -29,6 +29,8 @@
         <activity android:name=".View.UI.UI.VendorActivity"/>
         <activity android:name=".View.UI.UI.ComplaintActivity"/>
         <activity android:name=".View.UI.UI.SocietyRules"/>
+        <activity android:name=".Utils.LoginActivity"/>
+        <activity android:name=".Utils.RegisterActivity"/>
 
 
     </application>

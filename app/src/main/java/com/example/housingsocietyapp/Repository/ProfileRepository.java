@@ -4,9 +4,11 @@ import android.app.Application;
 import android.os.AsyncTask;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
-import com.example.housingsocietyapp.Model.User;
-import com.example.housingsocietyapp.Model.UserAccountInfo;
-import com.example.housingsocietyapp.Model.UserSettings;
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.housingsocietyapp.Model.LocalModel.User;
+import com.example.housingsocietyapp.Model.LocalModel.UserAccountInfo;
+import com.example.housingsocietyapp.Model.LocalModel.UserSettings;
 import com.example.housingsocietyapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +22,7 @@ public class ProfileRepository {
     private FirebaseDatabase database;
     private DatabaseReference myref;
     private String userID;
-    private LiveData<UserAccountInfo> accountInfoLiveData;
+    private MutableLiveData<UserAccountInfo> accountInfoLiveData;
     private Application application;
     private UserAccountInfo settings;
 
@@ -52,7 +54,8 @@ public class ProfileRepository {
     }
 
     public LiveData<UserAccountInfo> userAccountInfoLiveData(DataSnapshot dataSnapshot){
-//        accountInfoLiveData = userAccountInfo(dataSnapshot);
+        UserAccountInfo userAccountInfo = userAccountInfo(dataSnapshot);
+        accountInfoLiveData.postValue(userAccountInfo);
         return accountInfoLiveData;
     }
 
@@ -163,7 +166,7 @@ public class ProfileRepository {
                     username,
                     email,
                     userID,
-                    1);
+                    "1");
 
             myref.child(application.getString(R.string.db_user))
                     .child(userID).setValue(user);

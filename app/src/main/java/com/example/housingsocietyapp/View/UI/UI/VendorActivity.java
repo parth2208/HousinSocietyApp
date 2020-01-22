@@ -57,10 +57,8 @@ public class VendorActivity extends AppCompatActivity implements VendorAdapter.I
     @Override
     public void onItemClick(VendorsTable item){
         // TODO: 1/22/2020 Implementation of CallerIntent
-        if (item.getPhone()!= null){
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + item.getPhone()));
-            startActivity(intent);
-        }
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + item.getPhone()));
+        startActivity(intent);
 
 
     }

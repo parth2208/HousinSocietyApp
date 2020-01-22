@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -74,12 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_appBar">
 
-
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:id="@+id/fragment_display_picture"
+            android:id="@+id/profile_picture"
             android:layout_marginTop="20dp"
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="1dp"
@@ -91,12 +89,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fragment_Contact_name"
+            android:id="@+id/profile_name"
             android:text="Name"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_display_picture" />
+            app:layout_constraintTop_toBottomOf="@id/profile_picture" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -144,7 +142,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/userName"
+            android:id="@+id/profile_userName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userNameHeader"
             android:layout_marginStart="10dp"
@@ -159,7 +157,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/emailHeader"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userName"
+            app:layout_constraintTop_toBottomOf="@id/profile_userName"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -169,7 +167,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/userEmail"
+            android:id="@+id/profile_userEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/emailHeader"
             android:layout_marginStart="10dp"
@@ -183,7 +181,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/mobileHeader"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userEmail"
+            app:layout_constraintTop_toBottomOf="@id/profile_userEmail"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -193,7 +191,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/userM0bile"
+            android:id="@+id/profile_userMobile"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mobileHeader"
             android:layout_marginStart="10dp"
@@ -203,5 +201,15 @@
             android:text="User Mobile"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <include layout="@layout/layout_bottom_navigation_view"/>
+       </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

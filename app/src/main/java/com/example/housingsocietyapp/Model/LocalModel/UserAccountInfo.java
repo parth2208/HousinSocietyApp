@@ -1,4 +1,4 @@
-package com.example.housingsocietyapp.Model;
+package com.example.housingsocietyapp.Model.LocalModel;
 
 public class UserAccountInfo {
 
